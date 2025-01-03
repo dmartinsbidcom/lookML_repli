@@ -1,0 +1,75 @@
+# The name of this view in Looker is "Cpprovfichas"
+view: cpprovfichas {
+  # The sql_table_name parameter indicates the underlying database table
+  # to be used for all fields in this view.
+  sql_table_name: `ds_master2orbit.cpprovfichas` ;;
+
+  # No primary key is defined for this view. In order to join this view in an Explore,
+  # define primary_key: yes on a dimension that has no repeated values.
+
+    # Here's what a typical dimension looks like in LookML.
+    # A dimension is a groupable field that can be used to filter query results.
+    # This dimension will be called "Cond Ivacp Prov Ficha" in Explore.
+
+  dimension: cond_ivacp_prov_ficha {
+    type: string
+    sql: ${TABLE}.CondIVACpProvFicha ;;
+  }
+
+  dimension: datastream_metadata__source_timestamp {
+    type: number
+    sql: ${TABLE}.datastream_metadata.source_timestamp ;;
+    group_label: "Datastream Metadata"
+    group_item_label: "Source Timestamp"
+  }
+
+  dimension: datastream_metadata__uuid {
+    type: string
+    sql: ${TABLE}.datastream_metadata.uuid ;;
+    group_label: "Datastream Metadata"
+    group_item_label: "Uuid"
+  }
+
+  dimension: descripcion_cp_prov_ficha {
+    type: string
+    sql: ${TABLE}.DescripcionCpProvFicha ;;
+  }
+
+  dimension: esta_bloqueado {
+    type: number
+    sql: ${TABLE}.EstaBloqueado ;;
+  }
+
+  dimension: id_cp_prov_ficha {
+    type: number
+    sql: ${TABLE}.idCpProvFicha ;;
+  }
+
+  dimension: nro_doc_exterior_cp_prov_ficha {
+    type: string
+    sql: ${TABLE}.NroDocExteriorCpProvFicha ;;
+  }
+
+  dimension: numero_doc_cp_prov_ficha {
+    type: string
+    sql: ${TABLE}.NumeroDocCpProvFicha ;;
+  }
+
+  dimension: pais_cp_prov_ficha {
+    type: string
+    sql: ${TABLE}.PaisCpProvFicha ;;
+  }
+
+  dimension: razon_social_cp_prov_ficha {
+    type: string
+    sql: ${TABLE}.RazonSocialCpProvFicha ;;
+  }
+
+  dimension: tipo_doc_cp_prov_ficha {
+    type: string
+    sql: ${TABLE}.TipoDocCpProvFicha ;;
+  }
+  measure: count {
+    type: count
+  }
+}
